@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-app-copy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An ESLint plugin to enforce Geckoboard's in-house style guide for application copy",
   "main": "index.js",
   "repository": {
