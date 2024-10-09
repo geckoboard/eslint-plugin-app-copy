@@ -32,5 +32,9 @@ ruleTester.run("prefer-quot rule", rule, {
       code: `<span prop="It's nice to see you">Hello</span>`,
       errors: 1,
     },
+    {
+      code: `<span>That's Leo's mug!</span>`,
+      errors: 2,
+    },
   ],
 });

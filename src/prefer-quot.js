@@ -1,5 +1,7 @@
 function detectApos(context, node, str) {
-  if (str.match(/\w'\w/)) {
+  const matches = str.matchAll(/\w'\w/g);
+
+  for (const match of matches) {
     context.report({
       node,
       message: `Prefer quotes (’) over apostrophes (')`,
