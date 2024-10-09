@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "An ESLint plugin to enforce Geckoboard's in-house style guide for application copy",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geckoboard/eslint-plugin-app-copy"
+  },
   "scripts": {
     "test": "jest"
   },
