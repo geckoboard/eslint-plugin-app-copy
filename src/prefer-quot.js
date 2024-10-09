@@ -1,8 +1,11 @@
-function hasApos(str) {
-  return str.match(/\w'\w/);
+function detectApos(context, node, str) {
+  if (str.match(/\w'\w/)) {
+    context.report({
+      node,
+      message: `Prefer quotes (’) over apostrophes (')`,
+    });
+  }
 }
-
-const errorMessage = `Prefer quotes (’) over apostrophes (')`;
 
 module.exports = {
   meta: {
@@ -14,21 +17,14 @@ module.exports = {
   create: (context) => {
     return {
       Literal: (node) => {
-        if (hasApos(node.value)) {
-          context.report({
-            node,
-            message: errorMessage,
-          })
-        }
+        detectApos(context, node, node.value);
+      },
+      JSXText: (node) => {
+        detectApos(context, node, node.value);
       },
       TemplateElement: (node) => {
-        if (hasApos(node.value.cooked)) {
-          context.report({
-            node,
-            message: errorMessage,
-          })
-        }
-      }
+        detectApos(context, node, node.value.cooked);
+      },
     };
   },
 };
