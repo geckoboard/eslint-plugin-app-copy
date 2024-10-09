@@ -19,22 +19,42 @@ ruleTester.run("prefer-quot rule", rule, {
   invalid: [
     {
       code: `const bad = "Don't"`,
+      output: `const bad = "Don’t"`,
       errors: 1,
     },
     {
       code: "const bad = `Won't`",
+      output: "const bad = `Won’t`",
+      errors: 1,
+    },
+    {
+      code: "const bad = `you're ${name}`;",
+      output: "const bad = `you’re ${name}`;",
+      errors: 1,
+    },
+    {
+      code: "const bad = `${foo}: it's ${bar}`;",
+      output: "const bad = `${foo}: it’s ${bar}`;",
+      errors: 1,
+    },
+    {
+      code: "const bad = `${name} is Alice's dog`;",
+      output: "const bad = `${name} is Alice’s dog`;",
       errors: 1,
     },
     {
       code: `<span>You're welcome</span>`,
+      output: `<span>You’re welcome</span>`,
       errors: 1,
     },
     {
       code: `<span prop="It's nice to see you">Hello</span>`,
+      output: `<span prop="It’s nice to see you">Hello</span>`,
       errors: 1,
     },
     {
       code: `<span>That's Leo's mug!</span>`,
+      output: `<span>That’s Leo’s mug!</span>`,
       errors: 2,
     },
     {
@@ -42,6 +62,10 @@ ruleTester.run("prefer-quot rule", rule, {
       don't
       can't
       won't\`;`,
+      output: `const bad = \`
+      don’t
+      can’t
+      won’t\`;`,
       errors: 3,
     },
   ],
