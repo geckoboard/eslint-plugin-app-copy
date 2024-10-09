@@ -1,5 +1,5 @@
 function hasApos(str) {
-  return str.includes(`'`);
+  return str.match(/\w'\w/);
 }
 
 const errorMessage = `Prefer quotes (’) over apostrophes (')`;

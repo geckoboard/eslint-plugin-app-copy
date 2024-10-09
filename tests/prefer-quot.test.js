@@ -8,6 +8,7 @@ const ruleTester = new RuleTester({
 ruleTester.run("prefer-quot rule", rule, {
   valid: [
     { code: `const good = "Don’t"` },
+    { code: `const good = "And then he said: 'hello'"` },
   ],
   invalid: [
     {
