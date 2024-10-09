@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "description": "An ESLint plugin to enforce Geckoboard's in-house style guide for application copy",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "author": "Geckoboard",
   "license": "MIT",
   "peerDependencies": {
     "eslint": "8 - 9"
   },
   "devDependencies": {
-    "eslint": "^8.32.0"
+    "eslint": "^8.32.0",
+    "jest": "^29.7.0"
   }
 }
