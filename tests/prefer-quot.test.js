@@ -55,7 +55,7 @@ ruleTester.run("prefer-quot rule", rule, {
     {
       code: `<span>That's Leo's mug!</span>`,
       output: `<span>That’s Leo’s mug!</span>`,
-      errors: 2,
+      errors: 1,
     },
     {
       code: `const bad = \`
@@ -66,7 +66,7 @@ ruleTester.run("prefer-quot rule", rule, {
       don’t
       can’t
       won’t\`;`,
-      errors: 3,
+      errors: 1,
     },
   ],
 });

@@ -1,9 +1,7 @@
 const aposRegex = /(\w)'(\w)/g;
 
 function detectApos(context, node, str) {
-  const matches = str.matchAll(aposRegex);
-
-  for (const match of matches) {
+  if (str.match(aposRegex)) {
     context.report({
       node,
       message: `Prefer quotes (’) over apostrophes (')`,
