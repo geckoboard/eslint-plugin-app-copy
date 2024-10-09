@@ -58,6 +58,11 @@ ruleTester.run("prefer-quot rule", rule, {
       errors: 1,
     },
     {
+      code: `const bad = "don't\\ncan't\\nwon't";`,
+      output: `const bad = "don’t\\ncan’t\\nwon’t";`,
+      errors: 1,
+    },
+    {
       code: `const bad = \`
       don't
       can't
