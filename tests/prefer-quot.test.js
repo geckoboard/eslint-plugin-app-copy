@@ -11,7 +11,11 @@ ruleTester.run("prefer-quot rule", rule, {
   ],
   invalid: [
     {
-      code: `const bad = "Don't";`,
+      code: `const bad = "Don't"`,
+      errors: 1,
+    },
+    {
+      code: "const bad = `Don't`",
       errors: 1,
     },
   ],

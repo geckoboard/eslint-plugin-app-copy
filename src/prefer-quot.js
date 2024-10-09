@@ -1,3 +1,9 @@
+function hasApos(str) {
+  return str.includes(`'`);
+}
+
+const errorMessage = `Prefer quotes (’) over apostrophes (')`;
+
 module.exports = {
   meta: {
     type: "suggestion",
@@ -8,13 +14,21 @@ module.exports = {
   create: (context) => {
     return {
       Literal: (node) => {
-        if (node.value.indexOf(`'`) !== -1) {
+        if (hasApos(node.value)) {
           context.report({
             node,
-            message: `Prefer quotes (’) over apostrophes (')`,
+            message: errorMessage,
           })
         }
       },
+      TemplateElement: (node) => {
+        if (hasApos(node.value.cooked)) {
+          context.report({
+            node,
+            message: errorMessage,
+          })
+        }
+      }
     };
   },
 };
