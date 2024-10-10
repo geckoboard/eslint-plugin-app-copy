@@ -47,12 +47,12 @@ This rule encourages the use of &quot (’) over &apos (') in text. This rule is
 ```
 const MyComponent = () => (<span>That’s Leo’s mug!</span>);
 const stringLiteral = "You don’t have permission to do that!";
-const templateString = `Fido is ${name}’s dog`;
+const templateString = `Matt’s cat is ${name}`;
 ```
 
 #### invalid
 ```
 const MyComponent = () => (<span>That's Leo's mug!</span>);
 const stringLiteral = "You don't have permission to do that!";
-const templateString = `Fido is ${name}'s dog`;
+const templateString = `Matt's cat is ${name}`;
 ```
