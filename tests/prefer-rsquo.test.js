@@ -1,5 +1,5 @@
 const RuleTester = require("eslint").RuleTester;
-const rule = require("../src/prefer-quot");
+const rule = require("../src/prefer-rsquo");
 
 const ruleTester = new RuleTester({
   parserOptions: {

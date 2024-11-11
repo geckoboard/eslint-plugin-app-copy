@@ -39,9 +39,9 @@ const stringLiteral = "Sorry, your upload failed.";
 const templateString = `We are sorry ${name}, but something went wrong!`;
 ```
 
-### prefer-quot
+### prefer-rsquo
 
-This rule encourages the use of &quot (’) over &apos (') in text. This rule is **auto fixable**.
+This rule encourages the use of the right single quote `&rsquo;` (’) over `&apos;` (') in text. This rule is **auto fixable**.
 
 #### valid
 ```
