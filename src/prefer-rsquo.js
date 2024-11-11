@@ -4,7 +4,7 @@ function detectApos(context, node, str) {
   if (str.match(aposRegex)) {
     context.report({
       node,
-      message: `Prefer quotes (’) over apostrophes (')`,
+      message: `Prefer right single quote (’) over apostrophes (')`,
       fix: (fixer) => {
         const replacement = str.replaceAll(aposRegex, '$1’$2');
         return fixer.replaceText(node, replacement);
@@ -17,7 +17,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Detect strings with &apos; (') instead of &quot; (’)",
+      description: "Detect strings with &apos; (') instead of &rsquo; (’)",
     },
     fixable: "code",
   },
