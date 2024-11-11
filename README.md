@@ -41,7 +41,7 @@ const templateString = `We are sorry ${name}, but something went wrong!`;
 
 ### prefer-rsquo
 
-This rule encourages the use of the right single quote &rsquo (’) over &apos (') in text. This rule is **auto fixable**.
+This rule encourages the use of the right single quote `&rsquo;` (’) over `&apos;` (') in text. This rule is **auto fixable**.
 
 #### valid
 ```
