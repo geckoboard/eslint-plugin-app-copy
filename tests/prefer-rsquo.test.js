@@ -14,6 +14,7 @@ ruleTester.run("prefer-quot rule", rule, {
   valid: [
     { code: `const good = "Don’t"` },
     { code: `const good = "And then he said: 'hello'"` },
+    { code: `"I&rsquo;ve used an HTML entity here, which is fine as well"` },
     { code: `<span>I’m just some regular text</span>` },
   ],
   invalid: [
@@ -25,6 +26,11 @@ ruleTester.run("prefer-quot rule", rule, {
     {
       code: "const bad = `Won't`",
       output: "const bad = `Won’t`",
+      errors: 1,
+    },
+    {
+      code: `const bad = "can&apos;t use the wrong HTML entity as a workaround"`,
+      output: `const bad = "can’t use the wrong HTML entity as a workaround"`,
       errors: 1,
     },
     {
@@ -45,6 +51,11 @@ ruleTester.run("prefer-quot rule", rule, {
     {
       code: `<span>You're welcome</span>`,
       output: `<span>You’re welcome</span>`,
+      errors: 1,
+    },
+    {
+      code: `<span>You won&apos;t get away with it</span>`,
+      output: `<span>You won’t get away with it</span>`,
       errors: 1,
     },
     {

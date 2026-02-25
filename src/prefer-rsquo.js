@@ -1,4 +1,4 @@
-const aposRegex = /(\w)'(\w)/g;
+const aposRegex = /(\w)(?:'|&apos;)(\w)/g;
 
 function detectApos(context, node, str) {
   if (str.match(aposRegex)) {
@@ -6,7 +6,7 @@ function detectApos(context, node, str) {
       node,
       message: `Prefer right single quote (’) over apostrophes (')`,
       fix: (fixer) => {
-        const replacement = str.replaceAll(aposRegex, '$1’$2');
+        const replacement = str.replaceAll(aposRegex, "$1’$2");
         return fixer.replaceText(node, replacement);
       },
     });
