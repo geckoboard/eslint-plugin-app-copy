@@ -1,5 +1,5 @@
 const enDashRegex = /([a-zA-Z]+\s)(?:–|&ndash;)(\s[a-zA-Z]+)/g;
-const hyphenRegex = /([a-zA-Z]+\s)(?:--?-?|&hyphen;)(\s[a-zA-Z]+)/g;
+const hyphenRegex = /([a-zA-Z]+\s)(?:-{1,3}|&hyphen;)(\s[a-zA-Z]+)/g;
 
 function detectDash(context, node, str) {
   // Check for incorrect en-dash
