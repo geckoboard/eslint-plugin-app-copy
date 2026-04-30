@@ -17,7 +17,10 @@ Within your `.eslintrc` file you'll need to add this plugin to the plugins secti
     plugins: ['app-copy'],
     rules: {
         'app-copy/no-apologies': 'warn',
-        'app-copy/prefer-quot': 'error',
+        'app-copy/prefer-rsquo': 'error',
+        'app-copy/use-em-dash': 'error',
+        'app-copy/use-en-dash': 'error',
+        'app-copy/use-hyphen': 'error',
     }
 }
 ```
@@ -55,4 +58,54 @@ const templateString = `Matt’s cat is ${name}`;
 const MyComponent = () => (<span>That's Leo's mug!</span>);
 const stringLiteral = "You don't have permission to do that!";
 const templateString = `Matt's cat is ${name}`;
+```
+
+### use-em-dash
+
+This rule encourages the use of an em-dash (—) for parenthetical breaks between words, rather than a hyphen (-) or en-dash (–). This rule is **auto fixable**.
+
+#### valid
+```
+const stringLiteral = "A good — dash";
+const MyComponent = () => (<span>A good — dash in JSX</span>);
+```
+
+#### invalid
+```
+const stringLiteral = "A bad - hyphen";
+const stringLiteral = "A bad – endash";
+const stringLiteral = "no double -- dashes";
+```
+
+### use-en-dash
+
+This rule encourages the use of an en-dash (–) for numeric ranges, with no surrounding spaces, rather than a hyphen (-) or em-dash (—). This rule is **auto fixable**.
+
+#### valid
+```
+const stringLiteral = "A good 0–9 endash";
+const MyComponent = () => (<span>A good 0–9 endash in JSX</span>);
+```
+
+#### invalid
+```
+const stringLiteral = "A hyphen 0-9";
+const stringLiteral = "An emdash 0—9";
+const stringLiteral = "Correct dash but spaces 0 - 9";
+```
+
+### use-hyphen
+
+This rule encourages the use of a hyphen (-) for compound words, rather than an en-dash (–) or em-dash (—). This rule is **auto fixable**.
+
+#### valid
+```
+const stringLiteral = "A good-hyphen";
+const MyComponent = () => (<span>A good-hyphen</span>);
+```
+
+#### invalid
+```
+const stringLiteral = "A bad–endash";
+const stringLiteral = "A bad—emdash";
 ```
