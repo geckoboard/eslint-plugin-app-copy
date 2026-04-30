@@ -22,6 +22,7 @@ ruleTester.run("use-em-dash rule", rule, {
     { code: `<span>A good — dash in JSX</span>` },
     { code: `"A mid-word hyphen is ok!"` },
     { code: `"A numerical 0–9 range is also ok!"` },
+    { code: `"A numerical range with spaces 0 – 9"` },
   ],
   invalid: [
     {

@@ -1,5 +1,5 @@
-const enDashRegex = /(\w*)(?:–|&ndash;)(\w*)/g;
-const emDashRegex = /(\w*)(?:—|&mdash;)(\w*)/g;
+const enDashRegex = /([a-zA-Z]+)(?:–|&ndash;)([a-zA-Z]+)/g;
+const emDashRegex = /([a-zA-Z]+)(?:—|&mdash;)([a-zA-Z]+)/g;
 
 function detectDash(context, node, str) {
   // Check for incorrect en-dash
@@ -14,7 +14,7 @@ function detectDash(context, node, str) {
     })
   }
 
-  // Check for incorrect hyphen
+  // Check for incorrect em-dash
   if (str.match(emDashRegex)) {
     context.report({
       node,
