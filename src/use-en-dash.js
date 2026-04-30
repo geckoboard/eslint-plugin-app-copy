@@ -7,7 +7,7 @@ function detectDash(context, node, str) {
   if (str.match(emDashRegex)) {
     context.report({
       node,
-      message: `Prefer en-dash (–) over em-dash (—) for ranges`,
+      message: `Prefer en-dash (–) over em-dash (—) for numeric ranges`,
       fix: (fixer) => {
         const replacement = str.replaceAll(emDashRegex, "$1–$2");
         return fixer.replaceText(node, replacement);
@@ -19,7 +19,7 @@ function detectDash(context, node, str) {
   if (str.match(hyphenRegex)) {
     context.report({
       node,
-      message: `Prefer en-dash (–) over hyphen (-) for ranges`,
+      message: `Prefer en-dash (–) over hyphen (-) for numeric ranges`,
       fix: (fixer) => {
         const replacement = str.replaceAll(hyphenRegex, "$1–$2");
         return fixer.replaceText(node, replacement);
@@ -31,7 +31,7 @@ function detectDash(context, node, str) {
   if (str.match(enDashSpacesRegex)) {
     context.report({
       node,
-      message: `Removes spaces around en-dash (–) for ranges`,
+      message: `Removes spaces around en-dash (–) for numeric ranges`,
       fix: (fixer) => {
         const replacement = str.replaceAll(enDashSpacesRegex, "$1–$2");
         return fixer.replaceText(node, replacement);
